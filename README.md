@@ -1,4 +1,4 @@
-# CodeIgniter 4 Application Starter
+# Aplikasi News
 
 ## What is CodeIgniter?
 

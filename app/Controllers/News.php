@@ -161,9 +161,9 @@ public function delete()
 {
     $model = new NewsModel();
     $data = [           
-        'active' => 0
+        '' => 0
     ];
-    $model->update($this->request->getVar('id'), $data);       
+    $model->where('id', $this->request->getVar('id'))->delete();   
  
     return redirect()->to(base_url('/news/list?page=1'));
  
@@ -173,13 +173,13 @@ public function getNews($id = '')
     if ($id === '')
     {
         return $this->asObject()
-                ->where(['active' => 1])
+                ->where(['' => 1])
                 ->orderBy('publish_date', 'desc')
                 ->findAll();
     }
  
     return $this->asObject()
-                ->where(['id' => $id, 'active' => 1])
+                ->where(['id' => $id])
                 ->first();
  
 }
